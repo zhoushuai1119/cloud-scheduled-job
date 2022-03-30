@@ -494,10 +494,10 @@ Concrete contet describe as follows：
 
 ```
 <!-- configure 01、JobHandler scan path：auto scan JobHandler bean managed by container -->
-<context:component-scan base-package="com.xxl.job.executor.service.jobhandler" />
+<context:component-scan base-package="com.cloud.scheduled.job.executor.service.jobhandler" />
 
 <!-- configure 02、Excutor：executer core configure -->
-<bean id="xxlJobExecutor" class="com.xxl.job.core.executor.XxlJobExecutor" init-method="start" destroy-method="destroy" >
+<bean id="xxlJobExecutor" class="com.cloud.scheduled.job.core.executor.XxlJobExecutor" init-method="start" destroy-method="destroy" >
     <!-- executor IP[required]，auto get if it blank -->
     <property name="ip" value="${xxl.job.executor.ip}" />
     <!-- executor port[required] -->
@@ -599,7 +599,7 @@ On the log console,you can view task execution log on the executor immediately a
 The task logic exist in the executor project as JobHandler,the develop steps as shown below:
 
 #### Step 1:develp obHandler in the executor project
-    - 1, create new java class implent com.xxl.job.core.handler.IJobHandler;
+    - 1, create new java class implent com.cloud.scheduled.job.core.handler.IJobHandler;
     - 2, if you add @Component annotation on the top of the class name it’s will be managed as a bean instance by spring container;
     - 3, add  “@JobHandler(value=" customize jobhandler name")” annotation，the value stand for JobHandler name,it will be used as JobHandler property when create a new task in the schedule center.
 
@@ -864,7 +864,7 @@ When schedule center of the schedule module was deployed as web service, on one 
 
 The source code location of schedule center’s “log callback api service” as shown below:
 ```
-xxl-job-admin#com.xxl.job.admin.controller.JobApiController.callback
+xxl-job-admin#com.cloud.scheduled.job.admin.controller.JobApiController.callback
 ```
 
 Executor will execute task when it receive task execute request.it will notify the task execute result to schedule center when the task is done. 
@@ -1003,9 +1003,9 @@ The scheduling center provides API services for executors and business parties t
     3. Executor registration remove services;
     4. Triggers a single execution service, and support the task to be triggered according to the business event;
 
-The scheduling center API service location: com.xxl.job.core.biz.AdminBiz.java
+The scheduling center API service location: com.cloud.scheduled.job.core.biz.AdminBiz.java
 
-The scheduling center API service requests reference code：com.xxl.job.adminbiz.AdminBizTest.java
+The scheduling center API service requests reference code：com.cloud.scheduled.job.adminbiz.AdminBizTest.java
 
 
 ## 6 Version update log
@@ -1092,7 +1092,7 @@ Tips: V1.3.x release has been published , enter the maintenance phase, branch  a
         <version>${最新稳定版}</version>
     </dependency>
     ```
-- 2、To adapt to the rules of central warehouse, groupId has been changed from com.xxl to com.xuxueli.
+- 2、To adapt to the rules of central warehouse, groupId has been changed from com.cloud.scheduled to com.xuxueli.
 - 3、to resolve the problem that sub-modules can not be compiled separately, system version is not maintained in the project root pom, each sub-module is configured separately for version configuration;
 - 4、optimize data byte length statistics rule of RPC communication it may reduce 50% of data traffic;
 - 5、IJobHandler cancel task return value, before the execution status is judged by the return value, now it instead of task was executed successfully by default only when exception was caught the task execution was judged failed.

@@ -6,7 +6,6 @@
 	<artifactId>cloud-scheduled-job-admin</artifactId>
 	<packaging>jar</packaging>
 
-
 	<parent>
 		<groupId>com.cloud.platform</groupId>
 		<artifactId>cloud-scheduled-job</artifactId>
@@ -14,6 +13,12 @@
 	</parent>
 
 	<dependencies>
+		<!-- cloud-rocketmq -->
+		<dependency>
+			<groupId>com.cloud.platform</groupId>
+			<artifactId>cloud-rocketmq-spring-boot-starter</artifactId>
+			<version>1.6.0-RELEASES</version>
+		</dependency>
 
 		<!-- starter-web：spring-webmvc + autoconfigure + logback + yaml + tomcat -->
 		<dependency>

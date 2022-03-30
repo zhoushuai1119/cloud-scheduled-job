@@ -870,7 +870,7 @@ Bean模式任务，支持基于类的开发方式，每个任务对应一个Java
 
 #### 步骤一：执行器项目中，开发Job类：
 
-    1、开发一个继承自"com.xxl.job.core.handler.IJobHandler"的JobHandler类，实现其中任务方法。
+    1、开发一个继承自"com.cloud.scheduled.job.core.handler.IJobHandler"的JobHandler类，实现其中任务方法。
     2、手动通过如下方式注入到执行器容器。
     ```
     XxlJobExecutor.registJobHandler("demoJobHandler", new DemoJobHandler());
@@ -899,7 +899,7 @@ Bean模式任务，支持基于方法的开发方式，每个任务对应一个�
     4、任务结果：默认任务结果为 "成功" 状态，不需要主动设置；如有诉求，比如设置任务结果为失败，可以通过 "XxlJobHelper.handleFail/handleSuccess" 自主设置任务结果；
     
 ```
-// 可参考Sample示例执行器中的 "com.xxl.job.executor.service.jobhandler.SampleXxlJob" ，如下：
+// 可参考Sample示例执行器中的 "com.cloud.scheduled.job.executor.service.jobhandler.SampleXxlJob" ，如下：
 @XxlJob("demoJobHandler")
 public void demoJobHandler() throws Exception {
     XxlJobHelper.log("XXL-JOB, Hello World.");
@@ -1183,7 +1183,7 @@ XXL-JOB的单个任务，针对多个执行器是并行运行的，针对单个�
 
 调度中心提供的"日志回调服务API服务"代码位置如下：
 ```
-xxl-job-admin#com.xxl.job.admin.controller.JobApiController.callback
+xxl-job-admin#com.cloud.scheduled.job.admin.controller.JobApiController.callback
 ```
 
 “执行器”在接收到任务执行请求后，执行任务，在执行结束之后会将执行结果回调通知“调度中心”：
@@ -1385,7 +1385,7 @@ XXL-JOB是一个跨语言的任务调度平台，主要体现在如下几个方�
 - 2、提供基于HTTP的任务Handler（Bean任务，JobHandler="httpJobHandler"）；业务方只需要提供HTTP链接等相关信息即可，不限制语言、平台；（可参考章节 “原生内置Bean模式任务” ）
 
 ### 5.16 任务失败告警
-默认提供邮件失败告警，可扩展短信、钉钉等方式。如果需要新增一种告警方式，只需要新增一个实现 "com.xxl.job.admin.core.alarm.JobAlarm" 接口的告警实现即可。可以参考默认提供邮箱告警实现 "EmailJobAlarm"。
+默认提供邮件失败告警，可扩展短信、钉钉等方式。如果需要新增一种告警方式，只需要新增一个实现 "com.cloud.scheduled.job.admin.core.alarm.JobAlarm" 接口的告警实现即可。可以参考默认提供邮箱告警实现 "EmailJobAlarm"。
 
 ### 5.17 调度中心Docker镜像构建
 可以通过以下命令快速构建调度中心，并启动运行；
@@ -1432,8 +1432,8 @@ XXL-JOB 目标是一种跨平台、跨语言的任务调度规范和协议。
 
 ### 6.1 调度中心 RESTful API
 
-API服务位置：com.xxl.job.core.biz.AdminBiz （ com.xxl.job.admin.controller.JobApiController ）
-API服务请求参考代码：com.xxl.job.adminbiz.AdminBizTest
+API服务位置：com.cloud.scheduled.job.core.biz.AdminBiz （ com.cloud.scheduled.job.admin.controller.JobApiController ）
+API服务请求参考代码：com.cloud.scheduled.job.adminbiz.AdminBizTest
 
 #### a、任务回调
 ```
@@ -1515,8 +1515,8 @@ Header：
 
 ### 6.2 执行器 RESTful API
 
-API服务位置：com.xxl.job.core.biz.ExecutorBiz
-API服务请求参考代码：com.xxl.job.executorbiz.ExecutorBizTest
+API服务位置：com.cloud.scheduled.job.core.biz.ExecutorBiz
+API服务请求参考代码：com.cloud.scheduled.job.executorbiz.ExecutorBizTest
 
 #### a、心跳检测
 ```
@@ -1577,11 +1577,11 @@ Header：
         "jobId":1,                                  // 任务ID
         "executorHandler":"demoJobHandler",         // 任务标识
         "executorParams":"demoJobHandler",          // 任务参数
-        "executorBlockStrategy":"COVER_EARLY",      // 任务阻塞策略，可选值参考 com.xxl.job.core.enums.ExecutorBlockStrategyEnum
+        "executorBlockStrategy":"COVER_EARLY",      // 任务阻塞策略，可选值参考 com.cloud.scheduled.job.core.enums.ExecutorBlockStrategyEnum
         "executorTimeout":0,                        // 任务超时时间，单位秒，大于零时生效
         "logId":1,                                  // 本次调度日志ID
         "logDateTime":1586629003729,                // 本次调度日志时间
-        "glueType":"BEAN",                          // 任务模式，可选值参考 com.xxl.job.core.glue.GlueTypeEnum
+        "glueType":"BEAN",                          // 任务模式，可选值参考 com.cloud.scheduled.job.core.glue.GlueTypeEnum
         "glueSource":"xxx",                         // GLUE脚本代码
         "glueUpdatetime":1586629003727,             // GLUE脚本更新时间，用于判定脚本是否变更以及是否需要刷新
         "broadcastIndex":0,                         // 分片参数：当前分片
@@ -2076,7 +2076,7 @@ public ReturnT<String> execute(String param) {
 - 5、调度中心升级springboot2.x；因此，系统要求JDK8+；
 - 6、XxlJob注解扫描方式优化，支持查找父类以及接口和基于类代理等常见情况；修复任务为空时小概率NPE问题；
 - 7、移除旧类注解JobHandler，推荐使用基于方法注解 "@XxlJob" 的方式进行任务开发；(如需保留类注解JobHandler使用方式，可以参考旧版逻辑定制开发);
-- 8、任务告警组件模块化：如果需要新增一种告警方式，只需要新增一个实现 "com.xxl.job.admin.core.alarm.JobAlarm" 接口的告警实现即可，更加灵活、方便定制；
+- 8、任务告警组件模块化：如果需要新增一种告警方式，只需要新增一个实现 "com.cloud.scheduled.job.admin.core.alarm.JobAlarm" 接口的告警实现即可，更加灵活、方便定制；
 - 9、调度中心国际化完善：新增 "中文繁体" 支持。默认为 "zh_CN"/中文简体, 可选范围为 "zh_CN"/中文简体, "zh_TC"/中文繁体 and "en"/英文；
 - 10、执行器注册逻辑优化：新增配置项 ”注册地址 / xxl.job.executor.address“，优先使用该配置作为注册地址，为空时使用内嵌服务 ”IP:PORT“ 作为注册地址。从而更灵活的支持容器类型执行器动态IP和动态映射端口问题。
 - 11、默认数据库连接池调整为hikari，移除tomcat-jdbc依赖；

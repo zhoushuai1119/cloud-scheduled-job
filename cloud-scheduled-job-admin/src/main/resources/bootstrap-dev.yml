@@ -93,7 +93,7 @@ spring:
 
 mybatis-plus:
   mapper-locations: classpath:/mybatis-mapper/*Mapper.xml
-  type-aliases-package: com.xxl.job.admin.core.model
+  type-aliases-package: com.cloud.xxl.job.admin.core.model
   configuration:
     map-underscore-to-camel-case: true
     #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
