@@ -11,7 +11,7 @@
  Target Server Version : 80028
  File Encoding         : 65001
 
- Date: 28/02/2022 21:45:00
+ Date: 30/03/2022 17:21:43
 */
 
 SET NAMES utf8mb4;
@@ -34,7 +34,7 @@ CREATE TABLE `xxl_job_group`  (
 -- ----------------------------
 -- Records of xxl_job_group
 -- ----------------------------
-INSERT INTO `xxl_job_group` VALUES (8, 'mq-executor', 'MQ-EXECUTOR', 0, 'http://172.17.0.4:8202/', '2022-02-28 21:44:53');
+INSERT INTO `xxl_job_group` VALUES (8, 'mq-executor', 'MQ-EXECUTOR', 0, 'http://172.17.0.8:8202/', '2022-03-30 17:21:37');
 
 -- ----------------------------
 -- Table structure for xxl_job_info
@@ -73,10 +73,10 @@ CREATE TABLE `xxl_job_info`  (
 -- Records of xxl_job_info
 -- ----------------------------
 INSERT INTO `xxl_job_info` VALUES (18, 8, 'user定时任务测试', '2022-02-19 18:54:47', '2022-02-23 08:34:52', 'zhoushuai', 'zs11195310@163.com', 'CRON', '0 0 1 * * ? *', 'DO_NOTHING', 'ROUND', 'mqJobHandler', 'EC_TASK_USER_JOB_TEST', 'user', 'SERIAL_EXECUTION', 0, 3, 'BEAN', '', 'GLUE代码初始化', '2022-02-19 18:54:47', '', 0, 0, 0);
-INSERT INTO `xxl_job_info` VALUES (19, 8, 'product定时任务测试', '2022-02-19 18:56:04', '2022-02-23 08:34:57', 'zhoushuai', 'zs11195310@163.com', 'CRON', '0 0 1 * * ? *', 'DO_NOTHING', 'ROUND', 'mqJobHandler', 'EC_TASK_PRODUCT_JOB_TEST', 'product', 'SERIAL_EXECUTION', 0, 3, 'BEAN', '', 'GLUE代码初始化', '2022-02-19 18:56:04', '', 1, 1646010000000, 1646067600000);
+INSERT INTO `xxl_job_info` VALUES (19, 8, 'product定时任务测试', '2022-02-19 18:56:04', '2022-03-04 18:08:25', 'zhoushuai', 'zs11195310@163.com', 'CRON', '0 0 1 * * ? *', 'DO_NOTHING', 'ROUND', 'mqJobHandler', 'EC_TASK_PRODUCT_JOB_TEST', 'product', 'SERIAL_EXECUTION', 0, 3, 'BEAN', '', 'GLUE代码初始化', '2022-02-19 18:56:04', '', 0, 0, 0);
 INSERT INTO `xxl_job_info` VALUES (20, 8, 'payment定时任务测试', '2022-02-19 18:56:46', '2022-02-23 08:35:03', 'zhoushuai', 'zs11195310@163.com', 'CRON', '0 0 1 * * ? *', 'DO_NOTHING', 'ROUND', 'mqJobHandler', 'EC_TASK_PAYMENT_JOB_TEST', 'payment', 'SERIAL_EXECUTION', 0, 3, 'BEAN', '', 'GLUE代码初始化', '2022-02-19 18:56:46', '', 0, 0, 0);
 INSERT INTO `xxl_job_info` VALUES (21, 8, 'activiti定时任务测试', '2022-02-19 18:57:20', '2022-02-23 08:35:08', 'zhoushuai', 'zs11195310@163.com', 'CRON', '0 0 1 * * ? *', 'DO_NOTHING', 'ROUND', 'mqJobHandler', 'EC_TASK_ACTIVITI_JOB_TEST', 'activiti', 'SERIAL_EXECUTION', 0, 3, 'BEAN', '', 'GLUE代码初始化', '2022-02-19 18:57:20', '', 0, 0, 0);
-INSERT INTO `xxl_job_info` VALUES (22, 8, 'order定时任务测试', '2022-02-19 18:57:54', '2022-02-23 06:01:21', 'zhoushuai', 'zs11195310@163.com', 'CRON', '0 0 1 * * ? *', 'DO_NOTHING', 'ROUND', 'mqJobHandler', 'EC_TASK_ORDER_JOB_TEST', 'order', 'SERIAL_EXECUTION', 0, 3, 'BEAN', '', 'GLUE代码初始化', '2022-02-19 18:57:54', '', 1, 1646010000000, 1646067600000);
+INSERT INTO `xxl_job_info` VALUES (22, 8, 'order定时任务测试', '2022-02-19 18:57:54', '2022-03-04 18:08:20', 'zhoushuai', 'zs11195310@163.com', 'CRON', '0 0 1 * * ? *', 'DO_NOTHING', 'ROUND', 'mqJobHandler', 'EC_TASK_ORDER_JOB_TEST', 'order', 'SERIAL_EXECUTION', 0, 3, 'BEAN', '', 'GLUE代码初始化', '2022-02-19 18:57:54', '', 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for xxl_job_lock
@@ -124,8 +124,7 @@ CREATE TABLE `xxl_job_log_0`  (
 -- ----------------------------
 -- Records of xxl_job_log_0
 -- ----------------------------
-INSERT INTO `xxl_job_log_0` VALUES (705049936617537537, 8, 22, 'http://172.17.0.4:8202/', 'mqJobHandler', 'order', 'EC_TASK_ORDER_JOB_TEST', NULL, 3, '2022-02-28 21:36:44', 200, '任务触发类型：手动触发<br>调度机器：172.17.0.3<br>执行器-注册方式：自动注册<br>执行器-地址列表：[http://172.17.0.4:8202/]<br>路由策略：轮询<br>阻塞处理策略：单机串行<br>任务超时时间：0<br>失败重试次数：3<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>触发调度<<<<<<<<<<< </span><br>触发调度：<br>address：http://172.17.0.4:8202/<br>code：200<br>msg：null', '2022-02-28 21:36:44', 200, '', 0, 200, NULL, '2022-02-28 21:36:44');
-INSERT INTO `xxl_job_log_0` VALUES (705050103924129792, 8, 19, 'http://172.17.0.4:8202/', 'mqJobHandler', 'product', 'EC_TASK_PRODUCT_JOB_TEST', NULL, 3, '2022-02-28 21:37:24', 200, '任务触发类型：手动触发<br>调度机器：172.17.0.3<br>执行器-注册方式：自动注册<br>执行器-地址列表：[http://172.17.0.4:8202/]<br>路由策略：轮询<br>阻塞处理策略：单机串行<br>任务超时时间：0<br>失败重试次数：3<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>触发调度<<<<<<<<<<< </span><br>触发调度：<br>address：http://172.17.0.4:8202/<br>code：200<br>msg：null', '2022-02-28 21:37:24', 200, '', 0, 200, NULL, '2022-02-28 21:37:24');
+INSERT INTO `xxl_job_log_0` VALUES (706577268222197760, 8, 22, 'http://172.17.0.8:8202/', 'mqJobHandler', 'order', 'EC_TASK_ORDER_JOB_TEST', NULL, 3, '2022-03-04 18:45:48', 200, '任务触发类型：手动触发<br>调度机器：172.17.0.7<br>执行器-注册方式：自动注册<br>执行器-地址列表：[http://172.17.0.8:8202/]<br>路由策略：轮询<br>阻塞处理策略：单机串行<br>任务超时时间：0<br>失败重试次数：3<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>触发调度<<<<<<<<<<< </span><br>触发调度：<br>address：http://172.17.0.8:8202/<br>code：200<br>msg：null', '2022-03-04 18:45:49', 200, '', 0, 200, NULL, '2022-03-04 18:45:49');
 
 -- ----------------------------
 -- Table structure for xxl_job_log_1
@@ -159,7 +158,8 @@ CREATE TABLE `xxl_job_log_1`  (
 -- ----------------------------
 -- Records of xxl_job_log_1
 -- ----------------------------
-INSERT INTO `xxl_job_log_1` VALUES (705050492551561216, 8, 22, 'http://172.17.0.4:8202/', 'mqJobHandler', 'order', 'EC_TASK_ORDER_JOB_TEST', NULL, 3, '2022-02-28 21:38:57', 200, '任务触发类型：手动触发<br>调度机器：172.17.0.3<br>执行器-注册方式：自动注册<br>执行器-地址列表：[http://172.17.0.4:8202/]<br>路由策略：轮询<br>阻塞处理策略：单机串行<br>任务超时时间：0<br>失败重试次数：3<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>触发调度<<<<<<<<<<< </span><br>触发调度：<br>address：http://172.17.0.4:8202/<br>code：200<br>msg：null', '2022-02-28 21:38:57', 200, '', 0, 200, NULL, '2022-02-28 21:38:57');
+INSERT INTO `xxl_job_log_1` VALUES (706447953685905409, 8, 22, 'http://172.17.0.4:8202/', 'mqJobHandler', 'order', 'EC_TASK_ORDER_JOB_TEST', NULL, 3, '2022-03-04 18:11:57', 200, '任务触发类型：手动触发<br>调度机器：172.17.0.3<br>执行器-注册方式：自动注册<br>执行器-地址列表：[http://172.17.0.4:8202/]<br>路由策略：轮询<br>阻塞处理策略：单机串行<br>任务超时时间：0<br>失败重试次数：3<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>触发调度<<<<<<<<<<< </span><br>触发调度：<br>address：http://172.17.0.4:8202/<br>code：200<br>msg：null', '2022-03-04 18:11:57', 200, '', 0, 200, NULL, '2022-03-04 18:11:57');
+INSERT INTO `xxl_job_log_1` VALUES (706571664489447424, 8, 22, 'http://172.17.0.4:8202/', 'mqJobHandler', 'order', 'EC_TASK_ORDER_JOB_TEST', NULL, 3, '2022-03-04 18:23:32', 200, '任务触发类型：手动触发<br>调度机器：172.17.0.3<br>执行器-注册方式：自动注册<br>执行器-地址列表：[http://172.17.0.4:8202/]<br>路由策略：轮询<br>阻塞处理策略：单机串行<br>任务超时时间：0<br>失败重试次数：3<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>触发调度<<<<<<<<<<< </span><br>触发调度：<br>address：http://172.17.0.4:8202/<br>code：200<br>msg：null', '2022-03-04 18:23:32', 200, '', 0, 200, NULL, '2022-03-04 18:23:33');
 
 -- ----------------------------
 -- Table structure for xxl_job_log_2
@@ -188,13 +188,12 @@ CREATE TABLE `xxl_job_log_2`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `I_trigger_time`(`trigger_time`) USING BTREE,
   INDEX `I_handle_code`(`handle_code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of xxl_job_log_2
 -- ----------------------------
-INSERT INTO `xxl_job_log_2` VALUES (705026013922328576, 8, 22, 'http://172.17.0.4:8202/', 'mqJobHandler', 'order', 'EC_TASK_ORDER_JOB_TEST', NULL, 3, '2022-02-28 20:01:40', 200, '任务触发类型：手动触发<br>调度机器：172.17.0.3<br>执行器-注册方式：自动注册<br>执行器-地址列表：[http://172.17.0.4:8202/]<br>路由策略：轮询<br>阻塞处理策略：单机串行<br>任务超时时间：0<br>失败重试次数：3<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>触发调度<<<<<<<<<<< </span><br>触发调度：<br>address：http://172.17.0.4:8202/<br>code：200<br>msg：null', '2022-02-28 20:01:41', 200, '', 0, 200, NULL, '2022-02-28 20:01:42');
-INSERT INTO `xxl_job_log_2` VALUES (705050392743903233, 8, 19, 'http://172.17.0.4:8202/', 'mqJobHandler', 'product', 'EC_TASK_PRODUCT_JOB_TEST', NULL, 3, '2022-02-28 21:38:33', 200, '任务触发类型：手动触发<br>调度机器：172.17.0.3<br>执行器-注册方式：自动注册<br>执行器-地址列表：[http://172.17.0.4:8202/]<br>路由策略：轮询<br>阻塞处理策略：单机串行<br>任务超时时间：0<br>失败重试次数：3<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>触发调度<<<<<<<<<<< </span><br>触发调度：<br>address：http://172.17.0.4:8202/<br>code：200<br>msg：null', '2022-02-28 21:38:33', 200, '', 0, 200, NULL, '2022-02-28 21:38:33');
+INSERT INTO `xxl_job_log_2` VALUES (706446723123249152, 8, 22, 'http://172.17.0.4:8202/', 'mqJobHandler', 'order', 'EC_TASK_ORDER_JOB_TEST', NULL, 3, '2022-03-04 18:07:04', 200, '任务触发类型：手动触发<br>调度机器：172.17.0.3<br>执行器-注册方式：自动注册<br>执行器-地址列表：[http://172.17.0.4:8202/]<br>路由策略：轮询<br>阻塞处理策略：单机串行<br>任务超时时间：0<br>失败重试次数：3<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>触发调度<<<<<<<<<<< </span><br>触发调度：<br>address：http://172.17.0.4:8202/<br>code：200<br>msg：null', '2022-03-04 18:07:04', 200, '', 0, 200, NULL, '2022-03-04 18:07:05');
 
 -- ----------------------------
 -- Table structure for xxl_job_log_report
@@ -209,31 +208,43 @@ CREATE TABLE `xxl_job_log_report`  (
   `update_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `i_trigger_day`(`trigger_day`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of xxl_job_log_report
 -- ----------------------------
-INSERT INTO `xxl_job_log_report` VALUES (1, '2022-02-21 00:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (2, '2022-02-20 00:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (3, '2022-02-19 00:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (4, '2022-02-21 08:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (5, '2022-02-20 08:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (6, '2022-02-19 08:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (7, '2022-02-22 00:00:00', 0, 6, 3, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (8, '2022-02-22 08:00:00', 0, 6, 3, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (9, '2022-02-23 08:00:00', 0, 11, 56, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (10, '2022-02-23 00:00:00', 0, 11, 56, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (11, '2022-02-24 08:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (12, '2022-02-25 08:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (13, '2022-02-25 00:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (14, '2022-02-24 00:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (15, '2022-02-26 08:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (16, '2022-02-26 00:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (17, '2022-02-27 08:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (18, '2022-02-27 00:00:00', 0, 0, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (19, '2022-02-28 00:00:00', 0, 3, 0, NULL);
-INSERT INTO `xxl_job_log_report` VALUES (20, '2022-02-28 08:00:00', 0, 5, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (1, '2022-03-04 08:00:00', 0, 2, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (2, '2022-03-03 08:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (3, '2022-03-02 08:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (4, '2022-03-04 00:00:00', 0, 4, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (5, '2022-03-03 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (6, '2022-03-02 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (7, '2022-03-05 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (8, '2022-03-06 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (9, '2022-03-07 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (10, '2022-03-08 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (11, '2022-03-09 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (12, '2022-03-10 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (13, '2022-03-11 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (14, '2022-03-12 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (15, '2022-03-13 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (16, '2022-03-14 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (17, '2022-03-15 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (18, '2022-03-16 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (19, '2022-03-17 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (20, '2022-03-18 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (21, '2022-03-19 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (22, '2022-03-20 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (23, '2022-03-21 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (24, '2022-03-22 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (25, '2022-03-23 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (26, '2022-03-24 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (27, '2022-03-25 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (28, '2022-03-26 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (29, '2022-03-27 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (30, '2022-03-28 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (31, '2022-03-29 00:00:00', 0, 0, 0, NULL);
+INSERT INTO `xxl_job_log_report` VALUES (32, '2022-03-30 00:00:00', 0, 0, 0, NULL);
 
 -- ----------------------------
 -- Table structure for xxl_job_logglue
@@ -266,12 +277,12 @@ CREATE TABLE `xxl_job_registry`  (
   `update_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `i_g_k_v`(`registry_group`, `registry_key`, `registry_value`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 431 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 442 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of xxl_job_registry
 -- ----------------------------
-INSERT INTO `xxl_job_registry` VALUES (437, 'EXECUTOR', 'mq-executor', 'http://172.17.0.4:8202/', '2022-02-28 21:44:45');
+INSERT INTO `xxl_job_registry` VALUES (441, 'EXECUTOR', 'mq-executor', 'http://172.17.0.8:8202/', '2022-03-30 17:21:42');
 
 -- ----------------------------
 -- Table structure for xxl_job_user

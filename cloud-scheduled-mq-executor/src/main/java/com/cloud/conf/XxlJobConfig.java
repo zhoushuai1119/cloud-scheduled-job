@@ -15,34 +15,34 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 public class XxlJobConfig {
 
-    @Value("${xxl.job.admin.addresses}")
+    @Value("${scheduled.job.admin.addresses}")
     private String adminAddresses;
 
-    @Value("${xxl.job.accessToken}")
+    @Value("${scheduled.job.accessToken}")
     private String accessToken;
 
-    @Value("${xxl.job.executor.appname}")
+    @Value("${scheduled.job.executor.appname}")
     private String appname;
 
-    @Value("${xxl.job.executor.address}")
+    @Value("${scheduled.job.executor.address}")
     private String address;
 
-    @Value("${xxl.job.executor.ip}")
+    @Value("${scheduled.job.executor.ip}")
     private String ip;
 
-    @Value("${xxl.job.executor.port}")
+    @Value("${scheduled.job.executor.port}")
     private int port;
 
-    @Value("${xxl.job.executor.logpath}")
+    @Value("${scheduled.job.executor.logpath}")
     private String logPath;
 
-    @Value("${xxl.job.executor.logretentiondays}")
+    @Value("${scheduled.job.executor.logretentiondays}")
     private int logRetentionDays;
 
 
     @Bean
     public XxlJobSpringExecutor xxlJobExecutor() {
-        log.info(">>>>>>>>>>> xxl-job config init.");
+        log.info(">>>>>>>>>>> scheduled-job config init.");
         XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
         xxlJobSpringExecutor.setAdminAddresses(adminAddresses);
         xxlJobSpringExecutor.setAppname(appname);
