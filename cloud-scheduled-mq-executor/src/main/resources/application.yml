@@ -1,11 +1,11 @@
 server:
   port: 8767
   servlet:
-    context-path: /cloud-scheduled-mq-executor
+    context-path: /scheduled-mq-executor
 
 spring:
   application:
-    name: cloud-scheduled-mq-executor
+    name: scheduled-mq-executor
 
 scheduled:
   job:
