@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.cloud.platform</groupId>
+	<artifactId>cloud-scheduled-job-admin</artifactId>
+	<packaging>jar</packaging>
+
+
+	<parent>
+		<groupId>com.cloud.platform</groupId>
+		<artifactId>cloud-scheduled-job</artifactId>
+		<version>2.3.0-RELEASES</version>
+	</parent>
+
+	<dependencies>
+
+		<!-- starter-web：spring-webmvc + autoconfigure + logback + yaml + tomcat -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- starter-actuator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- starter-test：junit + spring-test + mockito -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- freemarker-starter -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+		<!-- mail-starter -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
+		<!--sharding-jdbc-->
+		<dependency>
+			<groupId>org.apache.shardingsphere</groupId>
+			<artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+		</dependency>
+		<!--druid数据库连接池-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+		</dependency>
+		<!--Mybatis-plus-->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+		</dependency>
+		<!--Mysql5.8-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- xxl-job-core -->
+		<dependency>
+			<groupId>com.cloud.platform</groupId>
+			<artifactId>cloud-scheduled-job-core</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>cloud-scheduled-job-admin</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!-- Docker maven plugin -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.2.2</version>
+				<configuration>
+					<!-- docker私服的地址 -->
+					<dockerHost>${docker.host.url}</dockerHost>
+					<!--镜像名称以及版本号-->
+					<imageName>${docker.repostory.url}/${docker.repostory.name}/${project.artifactId}:${project.version}</imageName>
+					<imageTags>
+						<imageTag>${project.version}</imageTag>
+					</imageTags>
+					<!--Dockerfile的位置 -->
+					<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+					<!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+					<!-- 以下两行是为了docker push到DockerHub使用的。 -->
+					<serverId>docker-harbor</serverId>
+					<registryUrl>${docker.repostory.url}</registryUrl>
+					<forceTags>true</forceTags>
+					<pushImage>false</pushImage>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
