@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @version: V1.0
  */
 @Configuration
-@MapperScan("com.cloud.xxl.job.admin.dao")
+@MapperScan("com.cloud.scheduled.job.admin.dao")
 public class MybatisPlusConfig {
 
     /**

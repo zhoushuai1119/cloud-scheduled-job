@@ -20,6 +20,13 @@
 			<version>1.6.0-RELEASES</version>
 		</dependency>
 
+		<!-- platform-common -->
+		<dependency>
+			<groupId>com.cloud.platform</groupId>
+			<artifactId>platform-common</artifactId>
+			<version>1.4.2-RELEASES</version>
+		</dependency>
+
 		<!-- starter-web：spring-webmvc + autoconfigure + logback + yaml + tomcat -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

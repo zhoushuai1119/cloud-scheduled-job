@@ -12,10 +12,10 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @version: V1.0
  */
 @SpringBootApplication(exclude = {DruidDataSourceAutoConfigure.class, DataSourceAutoConfiguration.class})
-public class XxlJobAdminApplication {
+public class ScheduledJobAdminApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(XxlJobAdminApplication.class, args);
+        SpringApplication.run(ScheduledJobAdminApplication.class, args);
     }
 
 }

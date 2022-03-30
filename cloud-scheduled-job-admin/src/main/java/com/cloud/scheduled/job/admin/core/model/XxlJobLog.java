@@ -6,11 +6,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
-import org.springframework.data.elasticsearch.annotations.DateFormat;
-import org.springframework.data.elasticsearch.annotations.Document;
-import org.springframework.data.elasticsearch.annotations.Field;
-import org.springframework.data.elasticsearch.annotations.FieldType;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -22,7 +17,6 @@ import java.util.Date;
  */
 @Data
 @TableName("xxl_job_log")
-@Document(indexName = "idx_joblog")
 public class XxlJobLog implements Serializable {
 
     private static final long serialVersionUID = 4619412463401915979L;
@@ -82,7 +76,6 @@ public class XxlJobLog implements Serializable {
      * 调度-时间
      */
     @TableField("trigger_time")
-    @Field(type = FieldType.Date, format = DateFormat.date_time)
     private Date triggerTime;
     /**
      * 调度-结果
@@ -100,7 +93,6 @@ public class XxlJobLog implements Serializable {
      * 执行-时间
      */
     @TableField("handle_time")
-    @Field(type = FieldType.Date, format = DateFormat.date_time)
     private Date handleTime;
     /**
      * 执行-状态
@@ -118,7 +110,6 @@ public class XxlJobLog implements Serializable {
      * 完成-时间
      */
     @TableField("callback_time")
-    @Field(type = FieldType.Date, format = DateFormat.date_time)
     private Date callbackTime;
     /**
      * 完成-状态

@@ -1,18 +1,17 @@
 package com.cloud.scheduled.job.admin.core.mqfeedback;
 
-import com.cloud.annotation.ConsumeTopic;
-import com.cloud.common.constants.CommonConstant;
-import com.cloud.common.utils.JsonUtil;
-import com.cloud.core.TopicListener;
-import com.cloud.dto.CloudMessage;
-import com.cloud.timedjob.TimeBasedJobFeedback;
+
+import com.cloud.mq.base.dto.CloudMessage;
+import com.cloud.platform.common.utils.JsonUtil;
+import com.cloud.platform.rocketmq.annotation.ConsumeTopic;
+import com.cloud.platform.rocketmq.core.TopicListener;
+import com.cloud.platform.rocketmq.timedjob.TimeBasedJobFeedback;
+import com.cloud.scheduled.job.admin.core.constants.CommonConstant;
 import com.cloud.scheduled.job.admin.core.model.XxlJobLog;
 import com.cloud.scheduled.job.admin.dao.XxlJobLogDao;
-import com.cloud.scheduled.job.admin.dao.elasticsearch.JobLogElasticRepository;
 import com.cloud.scheduled.job.core.biz.model.ReturnT;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.Date;
 import java.util.Objects;
 
@@ -29,9 +28,6 @@ public class MqFeedBackListener implements TopicListener<TimeBasedJobFeedback> {
 
     @Autowired
     private XxlJobLogDao xxlJobLogDao;
-
-    @Autowired
-    private JobLogElasticRepository jobLogElasticRepository;
 
 
     @Override
@@ -56,9 +52,6 @@ public class MqFeedBackListener implements TopicListener<TimeBasedJobFeedback> {
                 xxlJobLog.setCallbackMsg(timeBasedJobFeedback.getMsg());
             }
             xxlJobLogDao.updateCallbackInfo(xxlJobLog);
-
-            jobLogElasticRepository.save(xxlJobLog);
-            log.info("jobLogId:{}保存到Elasticsearch成功",xxlJobLogId);
 
         }
     }

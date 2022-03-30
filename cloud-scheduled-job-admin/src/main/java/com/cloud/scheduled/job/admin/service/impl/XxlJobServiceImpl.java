@@ -1,7 +1,7 @@
 package com.cloud.scheduled.job.admin.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.cloud.common.constants.CommonConstant;
+import com.cloud.scheduled.job.admin.core.constants.CommonConstant;
 import com.cloud.scheduled.job.admin.core.cron.CronExpression;
 import com.cloud.scheduled.job.admin.core.model.XxlJobGroup;
 import com.cloud.scheduled.job.admin.core.model.XxlJobInfo;

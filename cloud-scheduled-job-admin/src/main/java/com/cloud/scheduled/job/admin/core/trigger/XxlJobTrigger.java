@@ -1,8 +1,8 @@
 package com.cloud.scheduled.job.admin.core.trigger;
 
-import com.cloud.common.entity.mqjob.ExecutorParamsDTO;
-import com.cloud.common.utils.JsonUtil;
+import com.cloud.platform.common.utils.JsonUtil;
 import com.cloud.scheduled.job.admin.core.conf.XxlJobAdminConfig;
+import com.cloud.scheduled.job.admin.core.dto.ExecutorParamsDTO;
 import com.cloud.scheduled.job.admin.core.model.XxlJobGroup;
 import com.cloud.scheduled.job.admin.core.model.XxlJobInfo;
 import com.cloud.scheduled.job.admin.core.model.XxlJobLog;

@@ -1,12 +1,11 @@
 server:
   port: 19090
   servlet:
-    context-path: /xxl-job-admin
+    context-path: /scheduled-job-admin
 
 spring:
   application:
-    name: xxl-job-admin
-
+    name: scheduled-job-admin
 
   mvc:
     servlet:
@@ -56,13 +55,6 @@ spring:
               # 配置sharding的表达式,对应的id必须和sharding-column的值对应，否则报错
               algorithm-expression: xxl_job_log_$->{id % 3}
 
-
-    #elasticsearch配置
-  elasticsearch:
-    rest:
-      uris: http://139.196.208.53:9200
-
-
   freemarker:
     template-loader-path: classpath:/templates/
     suffix: .ftl
@@ -93,10 +85,10 @@ spring:
 
 mybatis-plus:
   mapper-locations: classpath:/mybatis-mapper/*Mapper.xml
-  type-aliases-package: com.cloud.xxl.job.admin.core.model
+  type-aliases-package: com.cloud.scheduled.job.admin.core.model
   configuration:
     map-underscore-to-camel-case: true
-    #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     auto-mapping-behavior: partial
   global-config:
     db-config:
