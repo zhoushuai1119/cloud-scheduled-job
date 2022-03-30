@@ -16,8 +16,8 @@
 
 
     <modules>
-        <module>xxl-job-executor-sample-frameless</module>
-        <module>xxl-job-executor-sample-springboot</module>
+        <module>scheduled-job-executor-sample-frameless</module>
+        <module>scheduled-job-executor-sample-springboot</module>
     </modules>
 
 </project>

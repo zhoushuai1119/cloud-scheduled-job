@@ -1,0 +1,150 @@
+server:
+  port: 19090
+  servlet:
+    context-path: /xxl-job-admin
+
+spring:
+  application:
+    name: xxl-job-admin
+
+
+  mvc:
+    servlet:
+      load-on-startup: 0
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+
+
+  #分表配置
+  shardingsphere:
+    #是否展示sql
+    props:
+      sql:
+        show: false
+    #数据源配置
+    datasource:
+      #数据源名称
+      names: master
+      master:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://139.196.208.53:3306/xxl_job?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: root
+        password: Zs11195310
+
+    sharding:
+      # 未配置分片规则的表将通过默认数据源定位
+      default-data-source-name: master
+      tables:
+        #这个地方注意:sharding-jdbc会根据名称去找本节点，所以写sql的时候，要写此节点的名称
+        xxl_job_log:
+          ## 这个配置是告诉sharding有多少个表
+          actual-data-nodes: master.xxl_job_log_$->{0..2}
+          ## 主键生成策略
+          key-generator:
+            #对应的数据库表的主键
+            column: id
+            #生成方式， 雪花模式
+            type: SNOWFLAKE
+          # 配置其分片策略和分片算法(分表算法)
+          table-strategy:
+            # 行表达式
+            inline:
+              # 配置sharding的计算列
+              sharding-column: id
+              # 配置sharding的表达式,对应的id必须和sharding-column的值对应，否则报错
+              algorithm-expression: xxl_job_log_$->{id % 3}
+
+
+    #elasticsearch配置
+  elasticsearch:
+    rest:
+      uris: http://139.196.208.53:9200
+
+
+  freemarker:
+    template-loader-path: classpath:/templates/
+    suffix: .ftl
+    charset: UTF-8
+    request-context-attribute: request
+    settings:
+      number_format: 0.##########
+
+
+  ###报警邮箱
+  mail:
+    host: smtp.qq.com
+    ###注意本地使用25端口也可以，部署到阿里云服务器必须使用465端口且一定要开启ssl协议
+    port: 465
+    from: 1623517072@qq.com
+    username: 1623517072@qq.com
+    password: gqdoapqsvjeqccjj
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mybatis-mapper/*Mapper.xml
+  type-aliases-package: com.xxl.job.admin.core.model
+  configuration:
+    map-underscore-to-camel-case: true
+    #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    auto-mapping-behavior: partial
+  global-config:
+    db-config:
+      id-type: auto
+
+
+### actuator
+management:
+  server:
+    servlet:
+      context-path: /actuator
+  health:
+    mail:
+      enabled: false
+
+xxl:
+  job:
+    accessToken:
+    i18n: zh_CN
+    triggerpool:
+      fast:
+        max: 200
+      slow:
+        max: 100
+    logretentiondays: 30
+
+
+#rocketmq配置
+cloud:
+  rocketmq:
+    #不能使用name-server
+    nameServer: 139.196.208.53:9876
+    producer:
+      group: p-${spring.application.name}
+
+    consumer:
+      #消费者组名称
+      c-xxl-job-admin:
+        subscription:
+          #定时任务
+          TP_F_FB: EC_RESULT
+
+logging:
+  level:
+    RocketmqClient: error
+    RocketmqRemoting: warn
+
+
+
+
+
