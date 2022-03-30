@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 @EnableConfigurationProperties(JobHandlerThreadPool.class)
 public class MqJobExecutor {
 
-    private ThreadPoolExecutor mqJobHandlerPool;
+    private ThreadPoolExecutor mqJobExecutorPool;
 
     @Resource
     private JobHandlerThreadPool jobHandlerThreadPool;
@@ -45,7 +45,7 @@ public class MqJobExecutor {
 
     @PostConstruct
     public void init() {
-        mqJobHandlerPool = new ThreadPoolExecutor(
+        mqJobExecutorPool = new ThreadPoolExecutor(
                 jobHandlerThreadPool.getCorePoolSize(),
                 jobHandlerThreadPool.getMaximumPoolSize(),
                 jobHandlerThreadPool.getKeepAliveTime(),
@@ -64,8 +64,8 @@ public class MqJobExecutor {
      */
     @XxlJob(CommonConstant.executorHandler.EXECUTOR_HANDLER)
     public void mqJobHandler() {
-        log.info("mqJobHandlerPool:{}", JsonUtil.toString(jobHandlerThreadPool));
-        mqJobHandlerPool.execute(() -> {
+        log.info("mqJobExecutorPool:{}", JsonUtil.toString(jobHandlerThreadPool));
+        mqJobExecutorPool.execute(() -> {
             executorMqJobTask();
         });
     }

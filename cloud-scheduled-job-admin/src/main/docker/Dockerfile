@@ -4,8 +4,8 @@ MAINTAINER zhoushuai zs195310@aliyun.com
 
 VOLUME /temp
 
-ADD xxl-job-admin.jar /zhoushuai/xxl-job-admin.jar
+ADD scheduled-job-admin.jar /app/scheduled-job-admin.jar
 
 EXPOSE 19090
 
-CMD java -jar /zhoushuai/xxl-job-admin.jar --spring.profiles.active=${environment}
+CMD java -jar /app/scheduled-job-admin.jar
