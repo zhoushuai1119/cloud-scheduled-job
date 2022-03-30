@@ -4,8 +4,8 @@ MAINTAINER zhoushuai zs195310@aliyun.com
 
 VOLUME /temp
 
-ADD scheduled-job-admin.jar /app/scheduled-job-admin.jar
+ADD cloud-scheduled-job-admin.jar /app/cloud-scheduled-job-admin.jar
 
 EXPOSE 19090
 
-CMD java -jar /app/scheduled-job-admin.jar
+CMD java -jar /app/cloud-scheduled-job-admin.jar
