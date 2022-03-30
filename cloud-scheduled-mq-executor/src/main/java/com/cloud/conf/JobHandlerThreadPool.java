@@ -10,7 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @version: v1
  */
 @Data
-@ConfigurationProperties(prefix = "mq.handler")
+@ConfigurationProperties(prefix = "mq.executor")
 public class JobHandlerThreadPool {
 
     private int corePoolSize;

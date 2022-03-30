@@ -6,7 +6,7 @@ import com.cloud.platform.common.utils.JsonUtil;
 import com.cloud.platform.rocketmq.annotation.ConsumeTopic;
 import com.cloud.platform.rocketmq.core.TopicListener;
 import com.cloud.platform.rocketmq.timedjob.TimeBasedJobFeedback;
-import com.cloud.scheduled.job.admin.core.constants.CommonConstant;
+import com.cloud.scheduled.job.core.constants.CommonConstant;
 import com.cloud.scheduled.job.admin.core.model.XxlJobLog;
 import com.cloud.scheduled.job.admin.dao.XxlJobLogDao;
 import com.cloud.scheduled.job.core.biz.model.ReturnT;

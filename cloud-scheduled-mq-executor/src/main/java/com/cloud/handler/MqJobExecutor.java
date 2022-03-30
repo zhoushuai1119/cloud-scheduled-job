@@ -1,16 +1,17 @@
 package com.cloud.handler;
 
-import com.cloud.common.beans.response.BaseResponse;
-import com.cloud.common.constants.CommonConstant;
-import com.cloud.common.entity.mqjob.ExecutorParamsDTO;
-import com.cloud.common.utils.JsonUtil;
+
 import com.cloud.conf.JobHandlerThreadPool;
-import com.cloud.core.CloudMQTemplate;
-import com.cloud.timedjob.TimeBasedJobMessage;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
+import com.cloud.mq.base.core.CloudMQTemplate;
+import com.cloud.platform.common.response.BaseResponse;
+import com.cloud.platform.common.utils.JsonUtil;
+import com.cloud.platform.rocketmq.timedjob.TimeBasedJobMessage;
+import com.cloud.scheduled.job.core.constants.CommonConstant;
+import com.cloud.scheduled.job.core.context.XxlJobHelper;
+import com.cloud.scheduled.job.core.dto.ExecutorParamsDTO;
+import com.cloud.scheduled.job.core.handler.annotation.XxlJob;
+import io.micrometer.core.instrument.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -32,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 @Slf4j
 @EnableConfigurationProperties(JobHandlerThreadPool.class)
-public class MqJobHandler {
+public class MqJobExecutor {
 
     private ThreadPoolExecutor mqJobHandlerPool;
 

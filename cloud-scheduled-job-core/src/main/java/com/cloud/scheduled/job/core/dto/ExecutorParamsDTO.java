@@ -1,4 +1,4 @@
-package com.cloud.scheduled.job.admin.core.dto;
+package com.cloud.scheduled.job.core.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

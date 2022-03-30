@@ -1,4 +1,4 @@
-package com.cloud.scheduled.job.admin.core.constants;
+package com.cloud.scheduled.job.core.constants;
 
 
 /**

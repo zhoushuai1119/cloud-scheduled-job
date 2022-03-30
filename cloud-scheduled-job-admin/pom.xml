@@ -13,36 +13,6 @@
 	</parent>
 
 	<dependencies>
-		<!-- cloud-rocketmq -->
-		<dependency>
-			<groupId>com.cloud.platform</groupId>
-			<artifactId>cloud-rocketmq-spring-boot-starter</artifactId>
-			<version>1.6.0-RELEASES</version>
-		</dependency>
-
-		<!-- platform-common -->
-		<dependency>
-			<groupId>com.cloud.platform</groupId>
-			<artifactId>platform-common</artifactId>
-			<version>1.4.2-RELEASES</version>
-		</dependency>
-
-		<!-- starter-web：spring-webmvc + autoconfigure + logback + yaml + tomcat -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<!-- starter-actuator -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<!-- starter-test：junit + spring-test + mockito -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 		<!-- freemarker-starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

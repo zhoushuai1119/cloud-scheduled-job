@@ -1,6 +1,6 @@
 package com.cloud.conf;
 
-import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
+import com.cloud.scheduled.job.core.executor.impl.XxlJobSpringExecutor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
