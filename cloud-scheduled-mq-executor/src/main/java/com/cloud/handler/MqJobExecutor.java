@@ -3,7 +3,7 @@ package com.cloud.handler;
 
 import com.cloud.conf.JobHandlerThreadPool;
 import com.cloud.mq.base.core.CloudMQTemplate;
-import com.cloud.platform.common.response.BaseResponse;
+import com.cloud.platform.common.domain.response.BaseResponse;
 import com.cloud.platform.common.utils.JsonUtil;
 import com.cloud.platform.rocketmq.timedjob.TimeBasedJobMessage;
 import com.cloud.scheduled.job.core.constants.CommonConstant;
