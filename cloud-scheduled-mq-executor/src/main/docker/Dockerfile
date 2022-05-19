@@ -8,4 +8,4 @@ ADD cloud-scheduled-mq-executor.jar /app/cloud-scheduled-mq-executor.jar
 
 EXPOSE 8767
 
-CMD java -jar /app/cloud-scheduled-mq-executor.jar
+CMD java ${JAVA_OPTS} -jar /app/cloud-scheduled-mq-executor.jar

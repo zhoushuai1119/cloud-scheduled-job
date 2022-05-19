@@ -4,7 +4,6 @@
 	     http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.cloud.platform</groupId>
 	<artifactId>cloud-scheduled-job</artifactId>
 	<version>2.3.0-RELEASES</version>
 	<packaging>pom</packaging>
@@ -39,6 +38,11 @@
 			<groupId>com.cloud.platform</groupId>
 			<artifactId>cloud-rocketmq-spring-boot-starter</artifactId>
 			<version>${cloud.mq.version}</version>
+		</dependency>
+		<!-- apollo配置中心 -->
+		<dependency>
+			<groupId>com.ctrip.framework.apollo</groupId>
+			<artifactId>apollo-client</artifactId>
 		</dependency>
 	</dependencies>
 

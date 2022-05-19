@@ -8,4 +8,4 @@ ADD cloud-scheduled-job-admin.jar /app/cloud-scheduled-job-admin.jar
 
 EXPOSE 19090
 
-CMD java -jar /app/cloud-scheduled-job-admin.jar
+CMD java ${JAVA_OPTS} -jar /app/cloud-scheduled-job-admin.jar
