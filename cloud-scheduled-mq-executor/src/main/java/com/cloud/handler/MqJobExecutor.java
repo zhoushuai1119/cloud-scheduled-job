@@ -20,7 +20,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.Objects;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -51,11 +50,8 @@ public class MqJobExecutor {
                 jobHandlerThreadPool.getKeepAliveTime(),
                 TimeUnit.SECONDS,
                 new LinkedBlockingQueue<Runnable>(50),
-                new ThreadFactory() {
-                    @Override
-                    public Thread newThread(Runnable r) {
-                        return new Thread(r, "xxl-job-admin, mqJobHandlerPool-" + r.hashCode());
-                    }
+                (Runnable r) -> {
+                    return new Thread(r, "xxl-job-admin, mqJobHandlerPool-" + r.hashCode());
                 });
     }
 
