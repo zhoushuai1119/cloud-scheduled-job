@@ -115,21 +115,20 @@ xxl:
         max: 100
     logretentiondays: 30
 
-
 #rocketmq配置
 cloud:
   rocketmq:
-    #不能使用name-server
-    nameServer: 139.196.208.53:9876
+    name-server: 139.196.208.53:9876
     producer:
-      group: p-${spring.application.name}
-
+      #生产者组名称
+      group-name: p-${spring.application.name}
+      #生产者是否开启消息轨迹
+      enableMsgTrace: true
     consumer:
       #消费者组名称
-      c-xxl-job-admin:
-        subscription:
-          #定时任务
-          TP_F_FB: EC_RESULT
+      group-name: c-${spring.application.name}
+      #消费者是否开启消息轨迹
+      enableMsgTrace: true
 
 logging:
   level:

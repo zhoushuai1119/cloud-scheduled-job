@@ -35,11 +35,12 @@ scheduled:
 #rocketmq配置
 cloud:
   rocketmq:
-    #不能使用name-server
-    nameServer: 139.196.208.53:9876
+    name-server: 139.196.208.53:9876
     producer:
-      group: p-${spring.application.name}
-
+      #生产者组名称
+      group-name: p-${spring.application.name}
+      #生产者是否开启消息轨迹
+      enableMsgTrace: true
 
 logging:
   level:

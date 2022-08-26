@@ -35,7 +35,7 @@
 			<artifactId>cloud-web-spring-boot-starter</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.cloud.platform</groupId>
+			<groupId>io.github.zhoushuai1119</groupId>
 			<artifactId>cloud-rocketmq-spring-boot-starter</artifactId>
 			<version>${cloud.mq.version}</version>
 		</dependency>
