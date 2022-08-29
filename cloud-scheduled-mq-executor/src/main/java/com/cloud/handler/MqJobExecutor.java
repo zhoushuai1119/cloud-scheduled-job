@@ -3,10 +3,10 @@ package com.cloud.handler;
 
 import com.cloud.conf.JobHandlerThreadPool;
 import com.cloud.mq.base.core.CloudMQTemplate;
+import com.cloud.platform.common.constants.PlatformCommonConstant;
 import com.cloud.platform.common.domain.response.BaseResponse;
 import com.cloud.platform.common.utils.JsonUtil;
 import com.cloud.platform.rocketmq.timedjob.TimeBasedJobMessage;
-import com.cloud.scheduled.job.core.constants.CommonConstant;
 import com.cloud.scheduled.job.core.context.XxlJobHelper;
 import com.cloud.scheduled.job.core.dto.ExecutorParamsDTO;
 import com.cloud.scheduled.job.core.handler.annotation.XxlJob;
@@ -58,7 +58,7 @@ public class MqJobExecutor {
     /**
      * 定时任务发送MQ
      */
-    @XxlJob(CommonConstant.executorHandler.EXECUTOR_HANDLER)
+    @XxlJob(PlatformCommonConstant.ExecutorHandler.EXECUTOR_HANDLER_NAME)
     public void mqJobHandler() {
         log.info("mqJobExecutorPool:{}", JsonUtil.toString(jobHandlerThreadPool));
         mqJobExecutorPool.execute(() -> {
@@ -87,15 +87,15 @@ public class MqJobExecutor {
 
 
         TimeBasedJobMessage timeBasedJobMessage = new TimeBasedJobMessage(executorParamsDTO.getLogId(), System.currentTimeMillis());
-        BaseResponse<Object> sendResult = cloudMQTemplate.send(CommonConstant.TimeTaskTopic.TIME_TASK_TOPIC, executorParamsDTO.getEventCode(), timeBasedJobMessage);
+        BaseResponse<Object> sendResult = cloudMQTemplate.send(PlatformCommonConstant.ScheduledJobTopic.SCHEDULED_JOB_TOPIC, executorParamsDTO.getEventCode(), timeBasedJobMessage);
 
         if (!sendResult.isSuccess()) {
             XxlJobHelper.handleFail();
         }
 
-        XxlJobHelper.log("XXL-JOB发送RockrtMQ,Topic:{},eventCode:{},messageBody:{}", CommonConstant.TimeTaskTopic.TIME_TASK_TOPIC, executorParamsDTO.getEventCode(), JsonUtil.toString(timeBasedJobMessage));
+        XxlJobHelper.log("XXL-JOB发送RockrtMQ,Topic:{},eventCode:{},messageBody:{}", PlatformCommonConstant.ScheduledJobTopic.SCHEDULED_JOB_TOPIC, executorParamsDTO.getEventCode(), JsonUtil.toString(timeBasedJobMessage));
 
-        log.info("XXL-JOB发送RockrtMQ,Topic:{},eventCode:{},messageBody:{}", CommonConstant.TimeTaskTopic.TIME_TASK_TOPIC, executorParamsDTO.getEventCode(), JsonUtil.toString(timeBasedJobMessage));
+        log.info("XXL-JOB发送RockrtMQ,Topic:{},eventCode:{},messageBody:{}", PlatformCommonConstant.ScheduledJobTopic.SCHEDULED_JOB_TOPIC, executorParamsDTO.getEventCode(), JsonUtil.toString(timeBasedJobMessage));
         // default success
         XxlJobHelper.handleSuccess();
     }

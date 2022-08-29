@@ -1,7 +1,7 @@
 package com.cloud.scheduled.job.admin.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.cloud.scheduled.job.core.constants.CommonConstant;
+import com.cloud.platform.common.constants.PlatformCommonConstant;
 import com.cloud.scheduled.job.admin.core.cron.CronExpression;
 import com.cloud.scheduled.job.admin.core.model.XxlJobGroup;
 import com.cloud.scheduled.job.admin.core.model.XxlJobInfo;
@@ -41,14 +41,14 @@ public class XxlJobServiceImpl extends ServiceImpl<XxlJobInfoDao, XxlJobInfo> im
 	private XxlJobLogGlueDao xxlJobLogGlueDao;
 	@Resource
 	private XxlJobLogReportDao xxlJobLogReportDao;
-	
+
 	@Override
 	public Map<String, Object> pageList(int start, int length, int jobGroup, int triggerStatus, String systemCode, String executorParam, String author) {
 
 		// page list
 		List<XxlJobInfo> list = baseMapper.pageList(start, length, jobGroup, triggerStatus, systemCode, executorParam, author);
 		int list_count = baseMapper.pageListCount(start, length, jobGroup, triggerStatus, systemCode, executorParam, author);
-		
+
 		// package result
 		Map<String, Object> maps = new HashMap<String, Object>();
 	    maps.put("recordsTotal", list_count);		// 总记录数
@@ -147,7 +147,7 @@ public class XxlJobServiceImpl extends ServiceImpl<XxlJobInfoDao, XxlJobInfo> im
 		}
 
 		//设置默认的执行器名称
-		jobInfo.setExecutorHandler(CommonConstant.executorHandler.EXECUTOR_HANDLER);
+		jobInfo.setExecutorHandler(PlatformCommonConstant.ExecutorHandler.EXECUTOR_HANDLER_NAME);
 		// add in db
 		jobInfo.setAddTime(new Date());
 		jobInfo.setUpdateTime(new Date());

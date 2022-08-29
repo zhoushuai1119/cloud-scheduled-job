@@ -2,16 +2,17 @@ package com.cloud.scheduled.job.admin.core.mqfeedback;
 
 
 import com.cloud.mq.base.dto.CloudMessage;
+import com.cloud.platform.common.constants.PlatformCommonConstant;
 import com.cloud.platform.common.utils.JsonUtil;
 import com.cloud.platform.rocketmq.annotation.ConsumeTopic;
 import com.cloud.platform.rocketmq.core.TopicListener;
 import com.cloud.platform.rocketmq.timedjob.TimeBasedJobFeedback;
-import com.cloud.scheduled.job.core.constants.CommonConstant;
 import com.cloud.scheduled.job.admin.core.model.XxlJobLog;
 import com.cloud.scheduled.job.admin.dao.XxlJobLogDao;
 import com.cloud.scheduled.job.core.biz.model.ReturnT;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -22,8 +23,8 @@ import java.util.Objects;
  * @version: v1
  */
 @Slf4j
-@ConsumeTopic(topic = CommonConstant.FeedBackTopic.FEEDBACK_TASK_TOPIC,
-        eventCode = CommonConstant.FeedBackTopic.FEEDBACK_TASK_EVENTCODE, log = true)
+@ConsumeTopic(topic = PlatformCommonConstant.FeedBackTopic.FEEDBACK_TASK_TOPIC,
+        eventCode = PlatformCommonConstant.FeedBackTopic.FEEDBACK_TASK_EVENTCODE, log = true)
 public class MqFeedBackListener implements TopicListener<TimeBasedJobFeedback> {
 
     @Autowired

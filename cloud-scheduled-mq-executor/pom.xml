@@ -5,12 +5,10 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.cloud.platform</groupId>
     <artifactId>cloud-scheduled-mq-executor</artifactId>
-    <version>2.3.0-RELEASES</version>
     <packaging>jar</packaging>
 
-    <name>cloud-scheduled-mq-executor</name>
+    <name>${project.artifactId}</name>
     <description>project for cloud-scheduled-mq-executor</description>
 
     <!--父工程的依赖-->
