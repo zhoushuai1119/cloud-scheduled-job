@@ -13,7 +13,7 @@
 
     <!--父工程的依赖-->
     <parent>
-        <groupId>com.cloud.platform</groupId>
+        <groupId>io.github.zhoushuai1119</groupId>
         <artifactId>cloud-scheduled-job</artifactId>
         <version>2.3.0-RELEASES</version>
     </parent>
@@ -21,7 +21,7 @@
     <dependencies>
         <!-- xxl-job-core -->
         <dependency>
-            <groupId>com.cloud.platform</groupId>
+            <groupId>io.github.zhoushuai1119</groupId>
             <artifactId>cloud-scheduled-job-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
