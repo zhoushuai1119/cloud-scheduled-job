@@ -41,6 +41,14 @@ cloud:
       group-name: p-${spring.application.name}
       #生产者是否开启消息轨迹
       enableMsgTrace: true
+    consumer:
+      #消费者组名称
+      group-name: c-${spring.application.name}
+      #消费者是否开启消息轨迹
+      enableMsgTrace: true
+    acl:
+      accessKey: zhoushuai
+      secretKey: zs19921119
 
 logging:
   level:

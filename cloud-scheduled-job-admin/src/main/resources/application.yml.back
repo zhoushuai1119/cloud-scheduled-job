@@ -15,45 +15,13 @@ spring:
     static-locations: classpath:/static/
 
 
-  #分表配置
-  shardingsphere:
-    #是否展示sql
-    props:
-      sql:
-        show: false
-    #数据源配置
-    datasource:
-      #数据源名称
-      names: master
-      master:
-        type: com.alibaba.druid.pool.DruidDataSource
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://139.196.208.53:3306/xxl_job?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=false
-        username: root
-        password: Zs11195310
-
-    sharding:
-      # 未配置分片规则的表将通过默认数据源定位
-      default-data-source-name: master
-      tables:
-        #这个地方注意:sharding-jdbc会根据名称去找本节点，所以写sql的时候，要写此节点的名称
-        xxl_job_log:
-          ## 这个配置是告诉sharding有多少个表
-          actual-data-nodes: master.xxl_job_log_$->{0..2}
-          ## 主键生成策略
-          key-generator:
-            #对应的数据库表的主键
-            column: id
-            #生成方式， 雪花模式
-            type: SNOWFLAKE
-          # 配置其分片策略和分片算法(分表算法)
-          table-strategy:
-            # 行表达式
-            inline:
-              # 配置sharding的计算列
-              sharding-column: id
-              # 配置sharding的表达式,对应的id必须和sharding-column的值对应，否则报错
-              algorithm-expression: xxl_job_log_$->{id % 3}
+  #数据源配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://139.196.208.53:3306/xxl_job?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: Zs11195310
 
   freemarker:
     template-loader-path: classpath:/templates/
@@ -71,7 +39,7 @@ spring:
     port: 465
     from: 1623517072@qq.com
     username: 1623517072@qq.com
-    password: gqdoapqsvjeqccjj
+    password: lkmxwptrzzcbbegh
     properties:
       mail:
         smtp:
@@ -113,6 +81,7 @@ xxl:
         max: 200
       slow:
         max: 100
+    ### 日志保留天数
     logretentiondays: 30
 
 #rocketmq配置
@@ -129,6 +98,9 @@ cloud:
       group-name: c-${spring.application.name}
       #消费者是否开启消息轨迹
       enableMsgTrace: true
+    acl:
+      accessKey: zhoushuai
+      secretKey: zs19921119
 
 logging:
   level:
