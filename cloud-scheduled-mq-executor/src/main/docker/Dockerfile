@@ -1,6 +1,6 @@
 FROM apache/skywalking-java-agent:8.12.0-java11
 
-MAINTAINER zhoushuai zs195310@aliyun.com
+MAINTAINER zhoushuai zs11195310@163.com
 
 ENV SW_AGENT_NAME cloud-scheduled-mq-executor
 
