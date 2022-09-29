@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  mq-executor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cloud-scheduled-mq-executor
+    restart: always
+    environment:
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=139.196.208.53:11800
+      - JAVA_OPTS=-Dspring.profiles.active=dev -Xms128m -Xmx128m
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone
+      - mq-executor-agent-config:/skywalking/agent/config
+    ports:
+      - "8767:8767"
+
+volumes:
+  mq-executor-agent-config:
+

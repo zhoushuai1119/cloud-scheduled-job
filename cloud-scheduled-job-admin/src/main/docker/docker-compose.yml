@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  job-admin:
+    build:
+      # 指定 Dockerfile 文件所在的路径
+      context: .
+      # 指定 context 指定的目录下面的 Dockerfile 的名称
+      dockerfile: Dockerfile
+    container_name: cloud-scheduled-job-admin
+    restart: always
+    environment:
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=139.196.208.53:11800
+      - JAVA_OPTS=-Dspring.profiles.active=dev -Xms256m -Xmx256m
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone
+      - job-admin-agent-config:/skywalking/agent/config
+    ports:
+      - "19090:19090"
+
+volumes:
+  job-admin-agent-config:
+
