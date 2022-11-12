@@ -41,6 +41,11 @@
 			<artifactId>cloud-rocketmq-spring-boot-starter</artifactId>
 			<version>${cloud.mq.version}</version>
 		</dependency>
+		<!-- nacos注册中心 -->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+		</dependency>
 		<!-- apollo配置中心 -->
 		<dependency>
 			<groupId>com.ctrip.framework.apollo</groupId>

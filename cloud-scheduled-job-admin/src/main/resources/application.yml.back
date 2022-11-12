@@ -7,6 +7,16 @@ spring:
   application:
     name: scheduled-job-admin
 
+  profiles:
+      active: dev
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 139.196.208.53:8848
+        username: nacos
+        password: nacos
+
   mvc:
     servlet:
       load-on-startup: 0
@@ -65,12 +75,13 @@ mybatis-plus:
 
 ### actuator
 management:
-  server:
-    servlet:
-      context-path: /actuator
-  health:
-    mail:
-      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
 
 xxl:
   job:

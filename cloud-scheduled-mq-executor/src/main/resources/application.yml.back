@@ -7,6 +7,16 @@ spring:
   application:
     name: scheduled-mq-executor
 
+  profiles:
+      active: dev
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 139.196.208.53:8848
+        username: nacos
+        password: nacos
+
 scheduled:
   job:
     admin:
@@ -55,9 +65,20 @@ logging:
     RocketmqClient: error
     RocketmqRemoting: warn
 
+
 #mqhandler线程池配置
 mq:
   executor:
     corePoolSize: 5
     maximumPoolSize: 10
     keepAliveTime: 60
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
