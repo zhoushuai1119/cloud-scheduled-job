@@ -60,11 +60,6 @@ cloud:
       accessKey: zhoushuai
       secretKey: zs19921119
 
-logging:
-  level:
-    RocketmqClient: error
-    RocketmqRemoting: warn
-
 
 #mqhandler线程池配置
 mq:
